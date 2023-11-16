@@ -86,25 +86,8 @@ header {
 
 .input-email{
     margin-top: 16rem;
-    margin-bottom: 15px;
     border-radius: 1rem;
 
-}
-
-.input-senha {
-    margin-bottom: 15px;
-}
-
-.input-nome {
-    margin-bottom: 15px;
-}
-
-.input-genero{
-    margin-bottom: 15px;
-}
-
-.input-cargo {
-    margin-bottom: 10px;
 }
 
 .input_padrao {
@@ -116,13 +99,15 @@ header {
     height: 1rem;
     background-color: var(--clr-gray);
     font-weight: 700;
+    margin-bottom: 15px;
      
 }
 
 .pula-linha {
     display: block;
     margin-top: 10px;  
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    color: var(--clr-background);
 }
 
 .botao-entrar-fim {
