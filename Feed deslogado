@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged-Out Feed</title>
+    <link rel="stylesheet" href="Tela-feed-deslogado.css">
+</head>
+<body>
+    <header>
+        <div class="cjr-pequena">
+            <a href=""><img src="cjr.png" target="_blank"></a>
+        </div>
+        <div>
+            <span><a href="Tela-cadastro.html">Criar Conta</a></span>
+            <span><a href="Tela-login.html" class="botao-entrar">Entrar</a></span>
+        </div>
+    </header>
+    <main>
+        <section class="feed-container">
+            <div class="feed-sidebar">
+                <h2>Popular Topics</h2>
+                <ul>
+                    <li>Sports</li>
+                    <li>News</li>
+                    <li>Entertainment</li>
+                    <li>Technology</li>
+                </ul>
+            </div>
+            <div class="feed-main">
+                <h2>Suggested Accounts</h2>
+                <ul>
+                    <li><a href="#">@joao</a></li>
+                    <li><a href="#">@maria</a></li>
+                    <li><a href="#">@jose</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,7 +1,11 @@
-let a = 5;
-let b = 90;
-let c = b-a;
+import express from "express";
+import router from "."
 
-console.log(c)
+const app = express()
+app.use(express.json())
 
-//mudança
+app.use(router)
+
+app.listen(8000, () => {
+    console.log('Servidor rodando na url: http//:localhost8000')
+})
