@@ -1,10 +1,12 @@
 import Users from "./users.service.js";
 import { Router } from "express";
+import { PrismaClient } from "@prisma/client";
 
+const prisma = new PrismaClient()
 const user = new Users()
-const router = Router()
+const cadastroRouter = Router()
 
-router.post("/userinfo", async (req,res) =>{
+cadastroRouter.post("/userinfo", async (req,res) =>{
     const {email, senha, nome, genero, cargo} = req.body;
     try{
         const novoUser = await user.newUser(email,senha,nome,genero,cargo);
@@ -15,9 +17,8 @@ router.post("/userinfo", async (req,res) =>{
     }
 })
 
-router.get("/listausers", async (req,res) =>{
+cadastroRouter.get("/listausers", async (req,res) =>{
     const listaDeUsers = await user.listUsers();
     res.status(201).json(listaDeUsers)
 })
-
-export default router
+export default cadastroRouter
