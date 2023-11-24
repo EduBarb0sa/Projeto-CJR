@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 :root {
 
-    --clr-header: #73C04A;
+    --clr-header: #8bc34a;
     --clr-dark-blue: #222e50;
     --clr-background: #111e3e;
     --clr-white: #fff;
@@ -28,18 +29,12 @@ header {
     font-size: 1rem;
 }
 
-
 .cjr-pequena {
     background-color: #ECF3fb;
     padding: 0.25rem 2rem;
     border-radius: 1rem;
     display: flex;
     justify-content: center;
-}
-
-.muda-letra {
-    font-size: 1.1rem;
-    font-weight: bold;
 }
 
 .botao-entrar {
@@ -50,7 +45,14 @@ header {
     background-color: var(--clr-dark-blue);
     padding: 1rem 1.25rem;
     margin-left: 20px;
-    
+    text-decoration: none;
+}
+
+.cjr-grande {
+    filter: brightness(1);
+    margin-top: 5rem;
+    width: 40%;
+    height: 40%;
 }
 
 .body {
@@ -59,69 +61,66 @@ header {
     background-color: #032449;
 }
 
-.card-login {
-    width: 500px;
-    height: 600px;
-
-    margin: 0 auto; /* Centraliza quando tem um elemento grande e um pequeno */
-    display: grid;
-    border-radius: 1rem;
-    margin-top: 2rem;
-    background-color: var( --clr-dark-blue);
+.Tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.img-central img {
-    width: 60%;
+.card-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: var( --clr-dark-blue);
+    margin-top: 3rem;
+    width: 400px;
+    height: 600px;
+
 }
 
 .img-central {
-    margin-left: 9rem;
     filter: brightness(0);
+    height: 40%;
+    width: 60%;
+}
+
+.input-email{
+    margin-top: 16rem;
+    border-radius: 1rem;
 
 }
 
-.input-usuario {
-    text-align: center;
-    border-radius: 10px;
-    margin-left: 2.7rem;
-    color: #000000;
-}
-
-.input-senha {
-    margin-top: 30px;
-    text-align: center;
-    margin-bottom: 2rem;
-}
 .input_padrao {
     display: block;
-    width: 26rem;
-    height: 3rem;
-    background-color: var(--clr-gray);
-    border-radius:1rem;
     border: none;
-    font-size: 1.2rem;
-    color: #000000;
-    padding-left: 1rem;
+    border-radius: 6px;
+    padding: 5%;
+    width: 20rem;
+    height: 1rem;
+    background-color: var(--clr-gray);
+    font-weight: 700;
+    margin-bottom: 15px;
+     
 }
 
 .pula-linha {
     display: block;
-    margin-bottom: 2rem;
-    margin-right: 3rem;
-    color: #000000;
-    text-decoration: underline;
+    margin-top: 10px;  
+    margin-bottom: 20px;
+    color: var(--clr-background);
 }
 
 .botao-entrar-fim {
-    padding: 1rem 9rem;
-    border-radius: 1rem;
+    border-radius: 20px;
     border: none;
     font-weight: 700;
-    color: var(--clr-dark-blue);
     background-color: var(--clr-gray);
-    margin-right: 3.5rem;
+    margin-right: 1rem;
+    padding: 0.7rem 5rem;
 
 }
+
 
 main {
     width: 100vw;
@@ -130,3 +129,32 @@ main {
     border: 1px solid #000000;
 }
 
+.img-central, .img-camera {
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+}
+
+.img-camera {
+    margin-right: 0;
+}
+
+.imagens {
+    position: relative;
+}
+
+.img-central {
+    position: absolute;
+    top: 5px;
+    left: -110px;
+    z-index: 1;
+}
+
+.img-camera {
+    position: absolute;
+    top: 180px;
+    left: 25px;
+    z-index: 2;
+    filter: brightness(0);
+
+}
