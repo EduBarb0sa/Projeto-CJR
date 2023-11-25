@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors"
 import cadastroRouter from "./back/users.controller.js";
 import loginRouter from "./back/user.login.js"
+import passwordrecuperationRouter from "./back/user.recuperar.senha.js";
 
 
 const app = express()
 app.use(express.json())
+app.use(passwordrecuperationRouter)
 app.use(cors())
 app.use(cadastroRouter)
 app.use(loginRouter)
