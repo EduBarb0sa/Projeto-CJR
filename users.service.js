@@ -23,4 +23,23 @@ export default class Users{
     async listUsers() {
         return await prisma.user.findMany();
     }
+
+    async checkPassword (login, password) {
+        const userlogin = await prisma.user.findUnique({
+            where: {email: login}
+        })
+        if (userlogin == undefined){
+            console.log('Usuário não cadastrado')
+            return 'Usuário não cadastrado'
+        }
+    
+        if (userlogin.senha != password){    
+            console.log(userlogin.senha)
+            console.log(password)   
+            return 'Senha não corresponde'
+
+        }
+        console.log('Login aceito')
+        return true
+        }
 }
