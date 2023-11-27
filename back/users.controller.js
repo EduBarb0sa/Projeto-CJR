@@ -1,4 +1,4 @@
-import Users from "./back/users.service.js";
+import Users from "./users.service.js";
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
 

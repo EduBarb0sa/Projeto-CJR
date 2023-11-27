@@ -15,10 +15,7 @@
   "dependencies": {
     "@prisma/client": "^5.6.0",
     "cors": "^2.8.5",
-<<<<<<< HEAD
-    "jsonwebtoken": "^9.0.2"
-=======
+    "jsonwebtoken": "^9.0.2",
     "express": "^4.18.2"
->>>>>>> c79c566f33179a610ddd01ec2c23747257e16100
   }
 }
