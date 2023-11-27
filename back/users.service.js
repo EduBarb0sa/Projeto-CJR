@@ -42,4 +42,33 @@ export default class Users{
         console.log('Login aceito')
         return true
         }
+    
+    async changeInfo(email,info) {
+        const checkexist = await prisma.user.findUnique({
+            where:{
+                email:email
+            }
+        
+        })
+        if (checkexist == null){
+            return 'Usuário não existe'
+        }
+        const updateUser = await prisma.user.update({
+            where: {
+              email: email,
+            },
+            data: {
+              senha: info,
+            },
+          })
+        return "Senha alterada com sucesso"
+
+    }
+    async findByEmail(email) {
+        return await prisma.user.findUnique({
+            where:{
+                email:email
+            }
+        });
+    }
 }
