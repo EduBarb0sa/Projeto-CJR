@@ -13,11 +13,10 @@ app.use(cors())
 app.use(cadastroRouter)
 app.use(loginRouter)
 app.use(postRouter)
-
 app.get('/',(req,res) =>{
     res.send('Operando')
 })
 
 app.listen(8000, () => {
-    console.log('Servidor rodando na url: http//:localhost8000')
+    console.log('Servidor rodando na url: http//:localhost:8000')
 })
