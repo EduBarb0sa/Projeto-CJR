@@ -11,16 +11,18 @@ async function trocarsenha() {
         email:email,
         password:password
     }
+    console.log(dados)
 
-    const trocarsenha = await fetch('http://localhost:8000/userchange', {
-        method: 'post',
+    const loginUser = await fetch('http://localhost:8000/userchangepassword', {
+        method: 'POST',
         headers : {'Content-type':
     "application/json"},
         body: JSON.stringify(dados)
 
 
     })
-}
+    console.log(dados)
+}   
 
 document.getElementById('enviar').addEventListener('click', () =>{
     console.log('funcionou');
