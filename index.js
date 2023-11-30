@@ -4,6 +4,8 @@ import cadastroRouter from "./back/users.controller.js";
 import loginRouter from "./back/user.login.js"
 import passwordrecuperationRouter from "./back/user.recuperar.senha.js";
 import postRouter from "./CRUD posts/posts.controller.js";
+import path from "path"
+
 
 
 const app = express()
@@ -20,3 +22,4 @@ app.get('/',(req,res) =>{
 app.listen(8000, () => {
     console.log('Servidor rodando na url: http//:localhost:8000')
 })
+

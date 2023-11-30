@@ -7,8 +7,9 @@ const prisma = new PrismaClient()
 const passwordrecuperationRouter = Router()
 
 
-passwordrecuperationRouter.post("/userchange", async(req,res) =>{
+passwordrecuperationRouter.post("/userchangepassword", async(req,res) =>{
     const {email, password} = req.body;
+    console.log(email,password)
     const change = await user.changeInfo(email,password);
     res.json(change)
 })
