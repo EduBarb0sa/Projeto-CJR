@@ -1,16 +1,18 @@
 import { Router } from "express";
-import AuthService from "./auth.service";
+import authService from "./auth.service.js";
 
-const authService = new AuthService();
-const authRout= Router();
+const AuthService = new authService()
+const authRouter = Router()
 
-authRout.post("/sign-in", async (req,res) =>{
-    const {email, senha} = req.body;
+authRouter.post("/sign-in", async (req,res) =>{
+    const { email, senha } = req.body
 
     try{
-        const token = await authService.signIn(email,senha)
+        const token = await AuthService.signIn(email,senha)
         res.status(201).json(token)
     }catch (e){
-        res.status(400).json({ message: e.message})
+        res.status(400).json({message: e.message})
     }
 })
+
+export default authRouter

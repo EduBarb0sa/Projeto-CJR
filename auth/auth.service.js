@@ -1,21 +1,18 @@
 import jwt from "jsonwebtoken";
-import Users from "../back/users.service";
+import Users from "../back/users.service.js";
 
-const userService = new Users();
+const userService = new Users()
 
+export default class authService  {
+    async signIn(email,senha) {
+        const user = await userService.findByEmail(email);
 
-class AuthService {
-    signIn (email, senha) {
-        const user = userService.findByEmail(email);
+        if (!user) throw new Error ("Usuário não encontrado")
 
-        if (!user) {
-            throw new Error ("Usuário não cadastrado")
-        }
-        if (user.senha !== senha) throw new Error('Senha incorreta');
+        if (user.senha !== senha) throw new Error ("Senha incorreta")
 
-        const token = jwt.sign({id:user.id}, "secret", {expiresIn: "15m"})
-        return {token};
+        const token = jwt.sign({id: user.id}, "secret", {expiresIn: "15m"})
+
+        return {token}
     }
 }
-
-export default AuthService;
