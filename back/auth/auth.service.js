@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import Users from "../back/users.service.js";
+import Users from "../CRUD-user/users.service.js";
 
 const userService = new Users()
 
