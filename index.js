@@ -1,15 +1,16 @@
 import express from "express";
 import cors from "cors"
-import cadastroRouter from "./back/users.controller.js";
-import loginRouter from "./back/user.login.js"
-import passwordrecuperationRouter from "./back/user.recuperar.senha.js";
-import postRouter from "./CRUD posts/posts.controller.js";
-import path from "path"
-
+import cadastroRouter from "./back/CRUD-user/users.controller.js";
+import loginRouter from "./back/CRUD-user/user.login.js"
+import passwordrecuperationRouter from "./back/CRUD-user/user.recuperar.senha.js";
+import postRouter from "./back/CRUD posts/posts.controller.js";
+import authRouter from "./back/auth/auth.controller.js";
 
 
 const app = express()
 app.use(express.json())
+
+app.use(authRouter)
 app.use(passwordrecuperationRouter)
 app.use(cors())
 app.use(cadastroRouter)
