@@ -1,10 +1,12 @@
 import Posts from "./posts.service.js";
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
+import Users from "../CRUD-user/users.service.js";
 
 const prisma = new PrismaClient();
 const postRouter = Router();
 const post = new Posts();
+const user = new Users();
 
 
 //criar post
@@ -38,6 +40,16 @@ postRouter.get('/profile/:userid', async(req,res)=>{
 
 postRouter.get('/posts', async (req,res) =>{
     const allPosts = await post.getPosts()
+  
+    allPosts.forEach(post =>{
+        const userid = post.userId
+        user.findById(userid)
+
+    })
+    const response = {
+        id: post.id
+        
+    }
     console.log(allPosts)
     res.status(201).json(allPosts)
 })

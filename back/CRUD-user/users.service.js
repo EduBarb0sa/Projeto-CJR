@@ -71,4 +71,11 @@ export default class Users{
             }
         });
     }
+    async findById(id) {
+        return await prisma.user.findUnique({
+            where: {
+                id: id
+            }
+        });
+    }
 }
