@@ -40,6 +40,8 @@ header {
 .criar {
     font-size: 1.1rem;
     font-weight: bold;
+    text-decoration: none;
+    color: black;
 }
 
 .botao-entrar {
@@ -50,6 +52,7 @@ header {
     background-color: var(--clr-dark-blue);
     padding: 1rem 1.25rem;
     margin-left: 20px;
+    text-decoration: none;
     
 }
 
