@@ -5,7 +5,7 @@ const AuthService = new authService()
 const authRouter = Router()
 
 authRouter.post("/sign-in", async (req,res) =>{
-    const { email, senha } = req.body
+    const { email, senha } = req.body 
 
     try{
         const token = await AuthService.signIn(email,senha)

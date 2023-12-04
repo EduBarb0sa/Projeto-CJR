@@ -12,6 +12,6 @@ const renderpost =async () => {
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
-    })
+   })
 }
 renderpost()
