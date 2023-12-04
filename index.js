@@ -23,4 +23,3 @@ app.get('/',(req,res) =>{
 app.listen(8000, () => {
     console.log('Servidor rodando na url: http//:localhost:8000')
 })
-
