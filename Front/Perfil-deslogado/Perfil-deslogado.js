@@ -1,34 +1,11 @@
-const criaposts = [
-    {
-        id: 1,
-        title: "Post 1",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 2,
-        title: "Post 2",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 3,
-        title: "Post 3",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 4,
-        title: "Post 4",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 5,
-        title: "Post 5",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    
-]
-const renderpost = () => {
+const id = 13   
+const url = 'http://localhost:8000/profile/' +id
+const renderpost =async () => {
+        
+    const response = await fetch(url)
+    const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
-    criaposts.forEach(post =>{
+    posts.forEach(post =>{
         const postElement = document.createElement('div')
         postElement.classList.add("post")
         
