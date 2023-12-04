@@ -1,6 +1,7 @@
-const posts = await fetch('http://localhost:8000/profile/:id')
-console.log(posts)
-const renderpost = () => {
+const renderpost =async () => {
+        
+    const response = await fetch('http://localhost:8000/posts')
+    const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
         const postElement = document.createElement('div')
