@@ -13,7 +13,7 @@ const cadastroRouter = Router()
 
 console.log(__dirname)
 cadastroRouter.get("/", (req,res,next) =>{
-    res.sendFile(path.join(__dirname, '../','Front','Tela-Cadastro','Tela_cadastro.html'))
+    res.sendFile(path.join(__dirname, '../','../','Front','Tela-Cadastro','Tela_cadastro.html'))
 })
 
 cadastroRouter.post("/userinfo", async (req,res) =>{
