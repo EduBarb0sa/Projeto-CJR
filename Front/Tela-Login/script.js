@@ -1,13 +1,13 @@
 
 async function login() {
-    const login = document.getElementById('login').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('login').value;
+    const senha = document.getElementById('password').value;
     const dados = {
-        login,
-        password
+        email,
+        senha
     }
-    
-    const loginUser = await fetch('http://localhost:8000/userlogin', {
+    console.log(dados)
+    const loginUser = await fetch('http://localhost:8000/sign-in', {
         method: 'post',
         headers : {'Content-type':
     "application/json"},

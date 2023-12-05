@@ -1,7 +1,8 @@
 import jwt, { decode } from "jsonwebtoken"
 
 export default function JwtGuard (req,res,next) {
-    const authorization = req.headers.authorization
+    const notParsedAuthorization = localStorage.getItem('token')
+    const authorization = JSON.parse(notParsedAuthorization)
 
     if (!authorization){
         res.status(401).json({message: "Token não informado"})
