@@ -1,5 +1,4 @@
-const id = 13   
-const url = 'http://localhost:8000/profile/' +id
+const url = 'http://localhost:8000/profile'
 const renderpost =async () => {
         
     const response = await fetch(url)

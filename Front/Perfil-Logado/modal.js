@@ -28,7 +28,7 @@ const criaposts = [
 ]
 const renderpost =async () => {
         
-    const response = await fetch('http://localhost:8000/posts')
+    const response = await fetch('http://localhost:8000/profile')
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{

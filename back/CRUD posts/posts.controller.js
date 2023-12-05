@@ -2,6 +2,7 @@ import Posts from "./posts.service.js";
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
 import Users from "../CRUD-user/users.service.js";
+import JwtGuard from "../auth/guards/jwt.guard.js";
 
 const prisma = new PrismaClient();
 const postRouter = Router();
@@ -25,8 +26,8 @@ postRouter.post('/posts', async (req,res) =>{
 
 })
 //posts do usuário
-postRouter.get('/profile/:userid', async(req,res)=>{
-    const {userid} = req.params;
+postRouter.get('/profile', JwtGuard ,async(req,res)=>{
+    const userid = req.user
     const userId = parseInt(userid)
     console.log(userid)
     console.log(userId)

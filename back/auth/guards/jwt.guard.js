@@ -1,4 +1,4 @@
-import { Jwt } from "jsonwebtoken"
+import jwt, { decode } from "jsonwebtoken"
 
 export default function JwtGuard (req,res,next) {
     const authorization = req.headers.authorization
@@ -13,9 +13,11 @@ export default function JwtGuard (req,res,next) {
 
     try{
         const decoded = jwt.verify(token,"secret")
-        req.user = decoded;
+        const userid = decoded.id
+        req.user = userid;
         next()
     }catch (e) {
+        res.status(201).json({message: e.message})
 
     }
 }
