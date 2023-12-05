@@ -14,15 +14,15 @@
                     <a href=""><img src="cjr.png" target="_blank"></a>
                 </div>
                 <div class="conteiner">
-                    <span class="criar">Fulano</span>
+                    <span class="criar" id="user"></span>
                     <img src="image 1.png" class="img_pequena">
                     <a href="http://127.0.0.1:5501/Front/Tela-Login/Tela-login.HTML"><img src="log-out.png" alt=""></a>
                 </div>
         </header>
         <main>
             <section class="muda_cor">
-                <span class="nome">Fulano</span>
-                <span class="email">fulano@gmail.com</span>
+                <span class="nome" id="user"></span>
+                <span class="email" id="user_gmail"></span>
                 <span class=""></span>
                 <img class="img_perfil" src="image 1.png">
             </section>
@@ -35,5 +35,11 @@
         </section>
         <section class="lista-de-post"></section>
     </body>
-    <script src="perfil-deslogado.js"></script>
+    <script src="perfil-deslogado.js">
+
+        var nome = nomeuser;
+        document.getElementById("user").innerHTML = nome
+        var email = gmailuser;
+        document.getElementById("user_gmail").innerHTML = email
+    </script>
 </html>
