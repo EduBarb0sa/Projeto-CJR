@@ -1,31 +1,3 @@
-const criaposts = [
-    {
-        id: 1,
-        title: "Post 1",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 2,
-        title: "Post 2",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 3,
-        title: "Post 3",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 4,
-        title: "Post 4",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    {
-        id: 5,
-        title: "Post 5",
-        content: "Não se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandiaNão se fala de outra coisa no metro de ceilandia"
-    },
-    
-]
 const renderpost =async () => {
         
     const response = await fetch('http://localhost:8000/profile')
@@ -58,15 +30,14 @@ function closeModal() {
     dialog.close();
 }
 
-function submitPost() {
+async function submitPost() {
     var markdownContent = document.getElementById("markdownInput").value;
-
-    fetch('url-do-seu-backend', {
+    fetch('/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ content: markdownContent }),
+        body: JSON.stringify({userId: 19, title: "sodiajio", content: markdownContent}),
     })
         .then(response => response.json())
         .then(data => {
