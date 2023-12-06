@@ -3,7 +3,12 @@ import cors from "cors"
 import UserRouter from "./back/CRUD-user/users.controller.js";
 import postRouter from "./back/CRUD posts/posts.controller.js";
 import authRouter from "./back/auth/auth.controller.js";
+import path from "path"
+import { fileURLToPath } from "url";
 
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 app.use(express.json())
@@ -18,8 +23,12 @@ app.use(authRouter)
 app.use(cors())
 app.use(UserRouter)
 app.use(postRouter)
-app.get('/',(req,res) =>{
-    res.send('Operando')
+app.get('/', (req,res) =>{
+    res.sendFile(path.join(__dirname,"/Front/Feed Logado/Feed Logado.html"))
+    res.sendFile(path.join(__dirname,  "/Front/Feed Logado/Feed Logado.css"))
+    res.sendFile(path.join(__dirname,  "/Front/Feed Logado/Feed Logado.js"))
+
+    
 })
 
 app.listen(8000, () => {
