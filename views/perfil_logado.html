@@ -3,21 +3,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="../public/styles/perfil_logado.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
-    <title>Feed Deslogado</title>
+    <title>Perfil Logado</title>
     </head>
 
     <body>
         <header>
                 <div class="cjr-pequena">
-                    <a href=""><img src="../Imagens/cjr.png" target="_blank"></a>
+                    <a href=""><img src="../public/Imagens/cjr.png" target="_blank"></a>
                 </div>
                 <div class="conteiner">
                     <span class="criar" id="user"></span>
-                    <img src="../Imagens/image 1.png" class="img_pequena">
-                    <a href="http://127.0.0.1:5501/Front/Tela-Login/Tela-login.HTML"><img src="../Imagens/log-out.png""></a>
+                    <img src="../public/Imagens/image 1.png" class="img_pequena">
+                    <a href="http://127.0.0.1:5501/Front/Tela-Login/Tela-login.HTML"><img src="../public/Imagens/log-out.png""></a>
                 </div>
         </header>
         <main>
@@ -25,7 +25,7 @@
                 <span class="nome" id="user"></span>
                 <span class="email" id="user_gmail"></span>
                 <span class="botao2">Editar Perfil</span>
-                <img class="img_perfil" src="../Imagens/image 1.png">
+                <img class="img_perfil" src="../public/Imagens/image 1.png">
             </section>
             <section>
                 <button onclick="openModal()" class="botao">Criar Post</button>
@@ -45,7 +45,7 @@
         </section>
         <section class="lista-de-post"></section>
     </body>
-    <script src="modal.js">
+    <script src="../public/scripts/perfil_logado.js">
 
         var nome = nomeuser;
         document.getElementById("user").innerHTML = nome
