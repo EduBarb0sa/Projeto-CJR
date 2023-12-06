@@ -15,7 +15,7 @@ async function cadastrar() {
         senha,
     };
     
-    const criarUser = await fetch('http://localhost:8000/userinfo', {
+    const criarUser = await fetch('http://localhost:8081/userinfo', {
         method: 'post',
         headers : {'Content-type':
     "application/json"},
