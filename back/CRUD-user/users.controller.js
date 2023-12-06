@@ -9,14 +9,16 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const prisma = new PrismaClient()
 const user = new Users()
-const cadastroRouter = Router()
+const UserRouter = Router()
 
 console.log(__dirname)
-cadastroRouter.get("/", (req,res,next) =>{
+UserRouter.get("/", (req,res,next) =>{
     res.sendFile(path.join(__dirname, '../','../','Front','Tela-Cadastro','Tela_cadastro.html'))
 })
 
-cadastroRouter.post("/userinfo", async (req,res) =>{
+
+//criar user
+UserRouter.post("/userinfo", async (req,res) =>{
     const {email, senha, nome, genero, cargo} = req.body;
     try{
         const novoUser = await user.newUser(email,senha,nome,genero,cargo);
@@ -27,8 +29,22 @@ cadastroRouter.post("/userinfo", async (req,res) =>{
     }
 })
 
-cadastroRouter.get("/listausers", async (req,res) =>{
+//listar users
+UserRouter.get("/listausers", async (req,res) =>{
     const listaDeUsers = await user.listUsers();
     res.status(201).json(listaDeUsers)
 })
-export default cadastroRouter
+
+//trocar senha do user
+UserRouter.post("/userchangepassword", async(req,res) =>{
+    const {email, password} = req.body;
+    console.log(email,password)
+    const change = await user.changeInfo(email,password);
+    res.json(change)
+})
+
+
+//OBS: criar user tá em auth.controller
+
+
+export default UserRouter
