@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+:root {
+
+    --clr-header: #73C04A;
+    --clr-dark-blue: #222e50;
+    --clr-background: #111e3e;
+    --clr-white: #fff;
+    --clr-gray: #d9d9d9;
+    --clr-dark-gray: #71767b;
+  
+    --ff-primary: 'Inter', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content:space-between; 
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    padding: 1.2rem;
+    background-color: var(--clr-header);
+    font-size: 1rem;
+}
+
+.cjr-pequena {
+    background-color: #ECF3fb;
+    padding: 0.25rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cjr-pequena:hover {
+    background-color: var(--clr-background);
+}
+
+.botao-login {
+    font-weight: 700;
+    border: none;
+    border-radius: 1rem;
+    color: var(--clr-white);
+    background-color: var(--clr-dark-blue);
+    padding: 1.25rem 1.5rem;
+    margin-left: 20px;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+.botao-login:hover{
+    background-color:#8bc34a;
+    color: #000000;
+}
+
+.cjr-grande {
+    filter: brightness(1);
+    margin-top: 5rem;
+    width: 40%;
+    height: 40%;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #032449;
+}
+
+.Tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: var( --clr-dark-blue);
+    margin-top: 3rem;
+    width: 400px;
+    height: 600px;
+
+}
+
+.img-central {
+    filter: brightness(0);
+    height: 40%;
+    width: 60%;
+}
+
+.input-email{
+    margin-top: 2rem;
+    border-radius: 1rem;
+
+}
+
+.input_padrao {
+    display: block;
+    border: none;
+    border-radius: 6px;
+    padding: 7%;
+    width: 20rem;
+    height: 1rem;
+    background-color: var(--clr-gray);
+    font-weight: 700;
+    margin-bottom: 20px;
+     
+}
+
+.pula-linha {
+    display: block;
+    margin-top: 10px;  
+    margin-bottom: 20px;
+    color: var(--clr-background);
+    cursor: none;
+    cursor: pointer;
+}
+
+.pula-linha:hover {
+    color: #fff;
+}
+
+.botao-entrar-fim {
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    background-color: var(--clr-gray);
+    margin-right: 1rem;
+    padding: 0.7rem 5rem;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.botao-entrar-fim:hover {
+    background-color: var(--clr-background);
+    color: #fff;
+}
+
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var( --clr-background);
+    border: 1px solid #000000;
+}
+
+.imagens {
+    position: relative;
+    font-size: 2rem;
+    padding-left: 2rem;
+    
+
+}
