@@ -10,7 +10,7 @@ const renderpost = async () => {
         postElement.classList.add("post")
         
         postElement.innerHTML = `
-            <h2>${post.title}</h2>
+            <h2>${post.title}</
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
@@ -19,9 +19,8 @@ const renderpost = async () => {
 
 renderpost()
 
-document.addEventListener('DOMContentLoaded', function () {
-    var simplemde = new SimpleMDE({ element: document.getElementById("markdownInput") });
-});
+
+var simplemde = new SimpleMDE({ element: document.getElementById("markdownInput") });
 
 function openModal() {
     var dialog = document.getElementById('myModal');
@@ -35,7 +34,8 @@ function closeModal() {
 
 async function submitPost(event) {
     event.preventDefault()
-    var markdownContent = document.getElementById("markdownInput").value;
+    var markdownContent = simplemde.value();
+    console.log(markdownContent)
     try { const dados = await fetch('http://localhost:8000/posts', {
         method: 'POST',
         headers: {

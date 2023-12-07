@@ -26,13 +26,15 @@ postRouter.post('/posts', async (req,res) =>{
 
 
 //posts do usuário
-postRouter.get('/profile/:id', async(req,res)=>{
-    const userId = req.params.id
+postRouter.get('/profile', JwtGuard ,async(req,res)=>{
+    const userid = req.user
+    const userId = parseInt(userid)
+    console.log(userid)
+    console.log(userId)
     try{
-    const userPostlist = await post.getUserPosts(+userId)
+    const userPostlist = await post.getUserPosts(userId)
     res.status(201).json(userPostlist)
     }catch(err){
-        console.log(err)
         res.status(400).json({erro: err.message})
     }
 })
@@ -54,6 +56,19 @@ postRouter.get('/posts', async (req,res) =>{
     res.status(201).json(allPosts)
 })
 
-
+postRouter.delete("/posts/:id", async (req, res) => {
+    const {id} = req.params
+    console.log("id", id)
+    console.log("Estou zqui", req.params)
+    const postFound = await post.findById(id);
+    if (!postFound){
+        console.log("Aqui agr")
+        throw new Error("Post não encontrado")
+    } else {
+        console.log("Nao deu bom")
+        await post.deleteById(id)
+        res.status(204).send()
+    }
+})
 
 export default postRouter

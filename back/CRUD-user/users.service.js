@@ -2,17 +2,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default class Users{
+export default class Users {
     async newUser(email, senha, nome, genero, cargo) {
         return await prisma.user.create({
-            data:{
+            data: {
                 email: email,
                 senha: senha,
                 nome: nome,
                 genero: genero,
                 cargo: cargo,
             }
-        }).catch((e) =>{
+        }).catch((e) => {
             if (e.code === 'P2002')
                 throw new Error('Usuário já cadastrado')
             throw e
@@ -24,50 +24,50 @@ export default class Users{
         return await prisma.user.findMany();
     }
 
-    async checkPassword (login, password) {
+    async checkPassword(login, password) {
         const userlogin = await prisma.user.findUnique({
-            where: {email: login}
+            where: { email: login }
         })
-        if (userlogin == undefined){
+        if (userlogin == undefined) {
             console.log('Usuário não cadastrado')
             return 'Usuário não cadastrado'
         }
-    
-        if (userlogin.senha != password){    
+
+        if (userlogin.senha != password) {
             console.log(userlogin.senha)
-            console.log(password)   
+            console.log(password)
             return 'Senha não corresponde'
 
         }
         console.log('Login aceito')
         return true
-        }
-    
-    async changeInfo(email,info) {
+    }
+
+    async changeInfo(email, info) {
         const checkexist = await prisma.user.findUnique({
-            where:{
-                email:email
+            where: {
+                email: email
             }
-        
+
         })
-        if (checkexist == null){
+        if (checkexist == null) {
             return 'Usuário não existe'
         }
         const updateUser = await prisma.user.update({
             where: {
-              email: email,
+                email: email,
             },
             data: {
-              senha: info,
+                senha: info,
             },
-          })
+        })
         return "Senha alterada com sucesso"
 
     }
     async findByEmail(email) {
         return await prisma.user.findUnique({
-            where:{
-                email:email
+            where: {
+                email: email
             }
         });
     }
@@ -77,5 +77,13 @@ export default class Users{
                 id: id
             }
         });
+    }
+
+    async deleteById(id) {
+        return await prisma.user.delete({
+            where: {
+                id: id
+            }
+        })
     }
 }

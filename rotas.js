@@ -20,6 +20,7 @@ pagesRouter.get('/feed_deslogado', (req,res) =>{
 
 pagesRouter.get('/feed_logado', (req,res) =>{
     res.render('../views/feed_logado')
+    
 })
 
 pagesRouter.get('/recuperar_senha', (req,res) =>{
@@ -28,7 +29,7 @@ pagesRouter.get('/recuperar_senha', (req,res) =>{
 })
 
 pagesRouter.get('/profile/:id', (req,res) =>{
-
+    res.render('../views/perfil_logado')
 })
 
 export default pagesRouter
