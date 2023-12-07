@@ -12,10 +12,8 @@ const user = new Users();
 
 //criar post
 postRouter.post('/posts', async (req,res) =>{
-    const {title, content, userid} =req.body
-    const userId = parseInt(userid)
-    console.log(userid)
-    console.log(userId)
+    console.log(req.body)
+    const {title, content, userId} =req.body
     try{
         const novoPost = await post.createPost(userId,title,content );
         res.status(201).json(novoPost)
@@ -28,15 +26,13 @@ postRouter.post('/posts', async (req,res) =>{
 
 
 //posts do usuário
-postRouter.get('/profile', JwtGuard ,async(req,res)=>{
-    const userid = req.user
-    const userId = parseInt(userid)
-    console.log(userid)
-    console.log(userId)
+postRouter.get('/profile/:id', async(req,res)=>{
+    const userId = req.params.id
     try{
-    const userPostlist = await post.getUserPosts(userId)
+    const userPostlist = await post.getUserPosts(+userId)
     res.status(201).json(userPostlist)
     }catch(err){
+        console.log(err)
         res.status(400).json({erro: err.message})
     }
 })

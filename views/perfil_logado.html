@@ -29,12 +29,12 @@
             </section>
             <section>
                 <button onclick="openModal()" class="botao">Criar Post</button>
-                <form>
+                <form id="qualquer">
                     <dialog id="myModal" class="modal">
                         <div class="modal-content">
                             <span class="close" onclick="closeModal()">&times;</span>
                             <textarea id="markdownInput"></textarea>
-                            <button onsubmit="submitPost()">Enviar</button>
+                            <button type="submit">Enviar</button>
                         </div>
                     </dialog>
                 </form>
