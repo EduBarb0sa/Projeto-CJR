@@ -10,7 +10,7 @@ const renderpost = async () => {
         postElement.classList.add("post")
         
         postElement.innerHTML = `
-            <h2>${post.title}</
+            <h2>${post.title}</h2>
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
