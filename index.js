@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors"
-import UserRouter from "./public/crud/CRUD-user/users.controller.js"
-import postRouter from "./public/crud/CRUD posts/posts.controller.js";
-import authRouter from "./public/crud/auth/auth.controller.js";
+import UserRouter from "./back/CRUD-user/users.controller.js"
+import postRouter from "./back/CRUD posts/posts.controller.js";
+import authRouter from "./back/auth/auth.controller.js";
 import pagesRouter from "./rotas.js";
 
 const app = express()

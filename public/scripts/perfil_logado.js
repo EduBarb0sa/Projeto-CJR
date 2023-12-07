@@ -19,9 +19,8 @@ const renderpost = async () => {
 
 renderpost()
 
-document.addEventListener('DOMContentLoaded', function () {
-    var simplemde = new SimpleMDE({ element: document.getElementById("markdownInput") });
-});
+
+var simplemde = new SimpleMDE({ element: document.getElementById("markdownInput") });
 
 function openModal() {
     var dialog = document.getElementById('myModal');
@@ -35,7 +34,8 @@ function closeModal() {
 
 async function submitPost(event) {
     event.preventDefault()
-    var markdownContent = document.getElementById("markdownInput").value;
+    var markdownContent = simplemde.value();
+    console.log(markdownContent)
     try { const dados = await fetch('http://localhost:8000/posts', {
         method: 'POST',
         headers: {

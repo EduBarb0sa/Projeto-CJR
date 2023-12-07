@@ -18,6 +18,8 @@ async function login() {
 }
 
 document.getElementById('logar').addEventListener('click', () =>{
+    console.log('funcionou')
     login()
+    
 })
 
