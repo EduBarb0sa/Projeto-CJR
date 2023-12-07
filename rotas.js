@@ -8,7 +8,9 @@ pagesRouter.get('/', (req,res) =>{
     res.render('../views/cadastro')
 
 })
-
+pagesRouter.get('/cadastro', (req,res) =>{
+    res.render('../views/cadastro')
+})
 pagesRouter.get('/login', (req,res) =>{
     res.render('../views/login')
 

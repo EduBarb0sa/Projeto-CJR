@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <link rel="stylesheet" href="../public/styles/perfil_logado.css">
+    <link rel="stylesheet" href="/styles/perfil_logado.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
     <title>Perfil Logado</title>
@@ -12,12 +12,12 @@
     <body>
         <header>
                 <div class="cjr-pequena">
-                    <a href=""><img src="../public/Imagens/cjr.png" target="_blank"></a>
+                    <a href="/feed_deslogado"><img src="../public/Imagens/cjr.png" target="_blank"></a>
                 </div>
                 <div class="conteiner">
                     <span class="criar" id="user"></span>
                     <img src="../public/Imagens/image 1.png" class="img_pequena">
-                    <a href="http://127.0.0.1:5501/Front/Tela-Login/Tela-login.HTML"><img src="../public/Imagens/log-out.png""></a>
+                    <a href="/login"><img src="../public/Imagens/log-out.png""></a>
                 </div>
         </header>
         <main>
@@ -45,7 +45,7 @@
         </section>
         <section class="lista-de-post"></section>
     </body>
-    <script src="../public/scripts/perfil_logado.js">
+    <script src="/scripts/perfil_logado.js">
 
         var nome = nomeuser;
         document.getElementById("user").innerHTML = nome
