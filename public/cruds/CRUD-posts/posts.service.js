@@ -54,4 +54,7 @@ export default class Posts {
             }
         })
     }
+    async save(){
+        cons = 0
+    }
 }
