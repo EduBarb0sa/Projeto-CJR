@@ -45,7 +45,6 @@ postRouter.get('/profile/posts/:id',async(req,res)=>{
 //todos posts
 postRouter.get('/posts', async (req,res) =>{
     const allPosts = await post.getPosts()
-  
     allPosts.forEach(post =>{
         const userid = post.userId
         user.findById(userid)
