@@ -11,8 +11,14 @@ export default class authService  {
 
         if (user.senha !== senha) throw new Error ("Senha incorreta")
 
-        const token = jwt.sign({id: user.id}, "secret", {expiresIn: "15m"})
+        const userid = user.id
+        const token = jwt.sign({id: userid}, "secret", {expiresIn: "15m"})
 
-        return {token}
+                
+        return {token, userid}
+    
+    }
+    async storeToken(token) {
+        const userToken = token
     }
 }

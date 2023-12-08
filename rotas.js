@@ -1,6 +1,4 @@
-import { render } from "ejs";
 import { Router } from "express";
-import path from "path";
 
 const pagesRouter = Router()
 
@@ -15,23 +13,25 @@ pagesRouter.get('/login', (req,res) =>{
     res.render('../views/login')
 
 })
-pagesRouter.get('/feed_deslogado', (req,res) =>{
+pagesRouter.get('/feed', (req,res) =>{
+    if(req.session.user){
+        res.render('../views/feed_logado')
+    }
     res.render('../views/feed_deslogado')
 
 })
-
-pagesRouter.get('/feed_logado', (req,res) =>{
-    res.render('../views/feed_logado')
-    
-})
-
 pagesRouter.get('/recuperar_senha', (req,res) =>{
     res.render('../views/recuperar_senha')
 
 })
 
 pagesRouter.get('/profile/:id', (req,res) =>{
-    res.render('../views/perfil_logado')
+    rotaid = req.params.id
+    userid = req.session.userid
+    if(rotaid ==userid){
+        res.render('../views/perfil_logado')
+    }
+    res.render('../views/perfil_deslogado')
 })
 
 export default pagesRouter
