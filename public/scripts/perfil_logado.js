@@ -8,8 +8,8 @@ const main = async () =>{
 const userid = main()
 const url = 'http://localhost:8000/profile/'+userid
 
-const renderpost =async () => {
-        
+
+const renderpost = async () => {
     const response = await fetch(url)
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")

@@ -72,5 +72,18 @@ postRouter.delete("/posts/:id", async (req, res) => {
     }
 })
 
+//Altera post ( Tentando )
+postRouter.put("/posts/:id", async (req, res) => {
+    const { id } = req.params;
+    const postToUpdate = await post.findById(id);
+    if (!postToUpdate) {
+        throw new Error("Post não encontrado");
+    } else {
+        postToUpdate.content = req.body.content;
+        await postToUpdate.save();
+        res.status(404).json({ error: error.message });
+    }
+});
+
 
 export default postRouter
