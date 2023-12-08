@@ -11,10 +11,9 @@ async function login() {
         method: 'post',
         headers : {'Content-type':
     "application/json"},
-        body: JSON.stringify(dados)
-
-
+        body: JSON.stringify(dados),
     })
+    window.location.href = "../feed"
 }
 
 document.getElementById('logar').addEventListener('click', () =>{

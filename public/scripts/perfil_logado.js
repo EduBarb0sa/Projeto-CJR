@@ -1,8 +1,9 @@
+const userid = req.session.userid
+const url = 'http://localhost:8000/profile/'+userid
+
 
 const renderpost = async () => {
-    const teste = window.location.href.split("id=") 
-    console.log(teste[1])
-    const response = await fetch(`http://localhost:8000/profile/${teste[1]}`)
+    const response = await fetch(url)
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{

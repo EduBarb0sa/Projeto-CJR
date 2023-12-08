@@ -8,7 +8,7 @@ export default class Posts {
         return await prisma.posts.create({
             data:{
                 userId: userId,
-                title: title,
+                title: "dsifjsdoij",
                 content: content
             }
         }).catch((e) =>{
