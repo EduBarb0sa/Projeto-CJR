@@ -37,7 +37,11 @@ pagesRouter.get('/profile/:id', (req, res) => {
         res.render('../views/perfil_deslogado');
     }
 });
-
+pagesRouter.get('/getuserid', (req, res) => {
+    // Get the user ID from the session
+    const userid = req.session.userid;
+    res.json(userid)
+})
 
 
 export default pagesRouter

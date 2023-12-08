@@ -1,10 +1,11 @@
 
 const renderpost = async () => {
-    const userid = await fetch('http://localhost:8000/get-session-id')
+    const response1 = await fetch('http://localhost:8000/getuserid')
+    const userid = await response1.json()
     console.log(userid)
-    const url = 'http://profile/'+userid
-    const response = await fetch(url)
-    const posts = await response.json()
+    const url = 'http://localhost:8000/profile/posts/'+userid
+    const response2 = await fetch(url)
+    const posts = await response2.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
         const postElement = document.createElement('div')

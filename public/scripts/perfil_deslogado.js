@@ -1,17 +1,6 @@
-const main = async () =>{
-    const userid = await fetch('http://localhost:8000/get-session-id')
-    console.log(userid)
-    return userid
-}
-
-
-main()
-const url = 'http://localhost:8000/profile/'+userid
-console.log(url)
-
 const renderpost =async () => {
         
-    const response = await fetch(url)
+    const response = await fetch('http://localhost:8000/profile/posts/9')
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
@@ -23,6 +12,6 @@ const renderpost =async () => {
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
-    })
+   })
 }
 renderpost()
