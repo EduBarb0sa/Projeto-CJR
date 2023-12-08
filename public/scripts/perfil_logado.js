@@ -1,5 +1,11 @@
 
-const userid = req.session.userid
+const main = async () =>{
+    const userid = await fetch('http://localhost:8000/get-session-id')
+    return userid
+}
+
+
+const userid = main()
 const url = 'http://localhost:8000/profile/'+userid
 
 const renderpost =async () => {
