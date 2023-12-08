@@ -15,7 +15,13 @@ authRouter.post("/sign-in", async (req,res) =>{
         req.session.userid = userid
         console.log(req.session.user)
         console.log(req.session.userid)
-        res.status(201).json(req.session.user)
+        // res.status(201).json(req.session.user)
+        
+        res.status(201).json({
+            message: "sucesso",
+            id: userid,
+            token: token
+        })
     }catch (e){
         res.status(400).json({message: e.message})
     }

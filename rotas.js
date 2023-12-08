@@ -29,18 +29,19 @@ pagesRouter.get('/profile/:id', (req, res) => {
     const rotaid = id;
     const userid = req.session.userid;
 
-    if (rotaid == userid) {
-        console.log('sim')
-        res.render('../views/perfil_logado');
-    } else {
-        console.log('nao')
-        res.render('../views/perfil_deslogado');
-    }
-});
-pagesRouter.get('/getuserid', (req, res) => {
-    // Get the user ID from the session
-    const userid = req.session.userid;
-    res.json(userid)
+pagesRouter.get('/profile', (req,res) =>{
+    console.log('logou')
+    res.render('../views/perfil_logado')
+
+    // const {id} = req.params
+    // const rotaid = id
+    // const userid = req.session.userid
+    // console.log(rotaid, userid)
+    // if(rotaid == userid){
+    // }else{
+    // }
+        
+    
 })
 
 
