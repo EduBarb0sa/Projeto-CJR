@@ -56,19 +56,29 @@ postRouter.get('/posts', async (req,res) =>{
     res.status(201).json(allPosts)
 })
 
+//Deleta Posts
 postRouter.delete("/posts/:id", async (req, res) => {
     const {id} = req.params
     console.log("id", id)
     console.log("Estou zqui", req.params)
     const postFound = await post.findById(id);
     if (!postFound){
-        console.log("Aqui agr")
         throw new Error("Post não encontrado")
     } else {
-        console.log("Nao deu bom")
         await post.deleteById(id)
         res.status(204).send()
     }
 })
 
+postRouter.put("/posts/:id", async (req, res) => {
+    const { id } = req.params;
+    const postToUpdate = await post.findById(id);
+    if (!postToUpdate) {
+        throw new Error("Post não encontrado");
+    } else {
+        await postToUpdate.save();
+        postToUpdate.content = req.body.content;
+        res.status(404).json({ error: error.message });
+    }
+});
 export default postRouter
