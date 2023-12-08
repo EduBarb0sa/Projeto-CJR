@@ -1,15 +1,8 @@
 
-const main = async () =>{
-    const userid = await fetch('http://localhost:8000/get-session-id')
-    return userid
-}
-
-
-const userid = main()
-const url = 'http://localhost:8000/profile/'+userid
-
-
 const renderpost = async () => {
+    const userid = await fetch('http://localhost:8000/get-session-id')
+    console.log(userid)
+    const url = 'http://profile/'+userid
     const response = await fetch(url)
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")

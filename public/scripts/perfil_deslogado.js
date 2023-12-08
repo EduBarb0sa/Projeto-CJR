@@ -1,6 +1,13 @@
-import session from "express-session"
-const userid = req.session.userid
+const main = async () =>{
+    const userid = await fetch('http://localhost:8000/get-session-id')
+    console.log(userid)
+    return userid
+}
+
+
+main()
 const url = 'http://localhost:8000/profile/'+userid
+console.log(url)
 
 const renderpost =async () => {
         

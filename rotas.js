@@ -25,25 +25,19 @@ pagesRouter.get('/recuperar_senha', (req,res) =>{
 
 })
 pagesRouter.get('/profile/:id', (req, res) => {
-    console.log(req.params); // Log the params object to see what's inside
     const {id} = req.params;
     const rotaid = id;
     const userid = req.session.userid;
-    console.log('rota', rotaid);
-    console.log('user', userid);
 
     if (rotaid == userid) {
-        console.log('logou');
+        console.log('sim')
         res.render('../views/perfil_logado');
     } else {
-        console.log('nao logou');
+        console.log('nao')
         res.render('../views/perfil_deslogado');
     }
 });
 
-pagesRouter.get('get-session-id', (req, res) => {
-    const userId = req.session.userid; // Get the user ID from the session
-    res.json(userId);
-})
+
 
 export default pagesRouter
