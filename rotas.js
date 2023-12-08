@@ -24,10 +24,7 @@ pagesRouter.get('/recuperar_senha', (req,res) =>{
     res.render('../views/recuperar_senha')
 
 })
-pagesRouter.get('/profile/:id', (req, res) => {
-    const {id} = req.params;
-    const rotaid = id;
-    const userid = req.session.userid;
+
 
 pagesRouter.get('/profile', (req,res) =>{
     console.log('logou')
