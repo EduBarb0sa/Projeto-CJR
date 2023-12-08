@@ -1,4 +1,8 @@
-const url = 'http://localhost:8000/profile'
+import session from "express-session"
+
+const userid = req.session.userid
+const url = 'http://localhost:8000/profile/'+userid
+
 const renderpost =async () => {
         
     const response = await fetch(url)

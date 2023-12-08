@@ -28,11 +28,9 @@ postRouter.post('/posts', async (req,res) =>{
 
 
 //posts do usuário
-postRouter.get('/profile', JwtGuard ,async(req,res)=>{
-    const userid = req.user
+postRouter.get('/profile/:id', JwtGuard ,async(req,res)=>{
+    const userid = req.params.id
     const userId = parseInt(userid)
-    console.log(userid)
-    console.log(userId)
     try{
     const userPostlist = await post.getUserPosts(userId)
     res.status(201).json(userPostlist)

@@ -27,6 +27,7 @@ pagesRouter.get('/recuperar_senha', (req,res) =>{
 
 pagesRouter.get('/profile/:id', (req,res) =>{
     rotaid = req.params.id
+    console
     userid = req.session.userid
     if(rotaid ==userid){
         res.render('../views/perfil_logado')
