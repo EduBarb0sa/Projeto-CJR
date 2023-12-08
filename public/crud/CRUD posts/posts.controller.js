@@ -28,17 +28,19 @@ postRouter.post('/posts', async (req,res) =>{
 
 
 //posts do usuário
-postRouter.get('/profile/:id', JwtGuard ,async(req,res)=>{
-    const userid = req.params.id
-    const userId = parseInt(userid)
-    try{
-    const userPostlist = await post.getUserPosts(userId)
-    res.status(201).json(userPostlist)
-    }catch(err){
-        res.status(400).json({erro: err.message})
+postRouter.get('/profile/posts/:id',async(req,res)=>{
+    const { id } = req.params;  // Use req.params.id directly
+    console.log(id);
+    const userId = parseInt(id, 10);
+    console.log(userId);
+    
+    try {
+        const userPostlist = await post.getUserPosts(userId);
+        res.status(201).json(userPostlist);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
-})
-
+});
 
 //todos posts
 postRouter.get('/posts', async (req,res) =>{

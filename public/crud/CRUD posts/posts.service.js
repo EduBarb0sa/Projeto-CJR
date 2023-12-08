@@ -22,8 +22,8 @@ export default class Posts {
         return await prisma.posts.findMany();
         
     }
-    async getUserPosts(userId){
-        console.log(userId)
+    async getUserPosts(userid){
+        const userId = parseInt(userid)
         return await prisma.posts.findMany({
             where:{
                 userId: userId
