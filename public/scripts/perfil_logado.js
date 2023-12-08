@@ -1,9 +1,6 @@
-const userid = req.session.userid
-const url = 'http://localhost:8000/profile/'+userid
-
-
-const renderpost = async () => {
-    const response = await fetch(url)
+const renderpost =async () => {
+        
+    const response = await fetch('http://localhost:8000/profile/posts/'+ localStorage.getItem("id_usuario"))
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
@@ -15,9 +12,8 @@ const renderpost = async () => {
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
-    })
+   })
 }
-
 renderpost()
 
 

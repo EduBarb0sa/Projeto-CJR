@@ -5,7 +5,7 @@
     content="width=device, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/login.css">
     <title>Tela de Cadastro</title>
-
+    <script src="../public\scripts\login.js"></script>
     </head>
     <body>
         <header>
@@ -30,9 +30,10 @@
                     </form>
                 </div>
                 <a class="pula-linha" href="/recuperar_senha" target="_blank">Esqueceu a senha?</a>
-                <a href="/feed">
-                    <button class="botao-entrar-fim" id="logar">Login</button>
-                </a>
+                <button class="botao-entrar-fim" id="logar" onclick="login()">Login</button>
+                <!-- <a href="/feed">
+                    
+                </a> -->
         </section>
         <script src="/scripts/login.js"></script>
     </main>

@@ -7,18 +7,32 @@ async function login() {
         senha
     }
     console.log(dados)
-    const loginUser = await fetch('http://localhost:8000/sign-in', {
+    // const loginUser = await
+    fetch('http://localhost:8000/sign-in', {
         method: 'post',
         headers : {'Content-type':
     "application/json"},
         body: JSON.stringify(dados),
+    }).then((res) => {
+        return res.json()
+    }).then((data) => {
+        if(data.message == "sucesso"){
+            localStorage.setItem("id_usuario", data.id)
+            localStorage.setItem("token", data.token)
+            localStorage.setItem("login", true)
+            alert("login efetuado com sucesso")
+            window.location.href = "../feed"
+        }else{
+            alert("fodeu")
+        }
     })
-    window.location.href = "../feed"
+    
+    
 }
 
-document.getElementById('logar').addEventListener('click', () =>{
-    console.log('funcionou')
-    login()
+// document.getElementById('logar').addEventListener('click', () =>{
+//     console.log('funcionou')
+//     login()
     
-})
+// })
 
