@@ -30,4 +30,27 @@ export default class Posts {
             }
         })
     }
+    async findById(id) {
+        try {
+            const postId = parseInt(id, 10)
+            const postFound = await prisma.posts.findUnique({
+                where: {
+                    id: postId
+                }
+            });
+            return postFound
+        }catch(error) {
+            console.error(error.message);
+            throw new Error("Erro ao buscar o post")
+        }
+    }
+
+    async deleteById(id) {
+        const postId = parseInt(id, 10)
+        return await prisma.posts.delete({
+            where: {
+                id: postId
+            }
+        })
+    }
 }

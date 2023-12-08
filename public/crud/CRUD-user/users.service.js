@@ -78,4 +78,11 @@ export default class Users{
             }
         });
     }
+    async deleteById(id) {
+        return await prisma.user.delete({
+            where: {
+                id: id
+            }
+        })
+    }
 }
