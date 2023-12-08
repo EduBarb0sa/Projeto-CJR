@@ -21,16 +21,3 @@ const getid = async () =>{
     const userid = response.json()
     return userid
 }
-// Function to generate and set the dynamic link
-function generateDynamicLink() {
-    // Your dynamic logic to generate the link goes here
-    const userid = getid()
-    var dynamicURL = "http://localhost:8000/profile/"+userid; // Replace this with your dynamic URL
-
-    // Set the href attribute of the dynamic link
-    document.getElementById("dynamicLink").href = dynamicURL;
-    console.log(dynamicURL)
-    }
-
-    // Attach the function to the button click event
-document.getElementById("dynamicLinkButton").addEventListener("click", generateDynamicLink)
