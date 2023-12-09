@@ -1,4 +1,3 @@
-
 const renderpost = async () => {
     const response1 = await fetch('http://localhost:8000/getuserid')
     const userid = await response1.json()
@@ -7,14 +6,21 @@ const renderpost = async () => {
     const response2 = await fetch(url)
     const posts = await response2.json()
     const postconteiner = document.querySelector(".lista-de-post")
+
     posts.forEach(post =>{
         const postElement = document.createElement('div')
         postElement.classList.add("post")
-        
-        postElement.innerHTML = `
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', console.log("Estou aqui"));
+        postElement.appendChild(deleteButton);
+
+        postElement.innerHTML += `
             <h2>${post.title}</h2>
             <p>${post.content}</p>
-        `
+        `;
+
         postconteiner.appendChild(postElement)
     })
 }
@@ -37,13 +43,12 @@ function closeModal() {
 async function submitPost(event) {
     event.preventDefault()
     var markdownContent = simplemde.value();
-    console.log(markdownContent)
     try { const dados = await fetch('http://localhost:8000/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({userId: 13, title: "sodiajio", content: markdownContent}),
+        body: JSON.stringify({userId: 13, content: markdownContent}),
     })
     const post = await dados.json()
     console.log(post)

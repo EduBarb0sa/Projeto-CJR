@@ -3,6 +3,7 @@ import authService from "./auth.service.js";
 import session from "express-session";
 import Users from "../CRUD-user/users.service.js";
 
+app.use(express.static('public'));
 const sessao = session
 const AuthService = new authService()
 const authRouter = Router()

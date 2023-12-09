@@ -8,14 +8,12 @@ const prisma = new PrismaClient();
 const postRouter = Router();
 const post = new Posts();
 const user = new Users();
-
+ 
 
 //criar post
 postRouter.post('/posts', async (req,res) =>{
-    const {title, content, userid} =req.body
-    const userId = parseInt(userid)
-    console.log(userid)
-    console.log(userId)
+    console.log(req.body)
+    const {title, content, userId} = req.body
     try{
         const novoPost = await post.createPost(userId,title,content );
         res.status(201).json(novoPost)
@@ -57,24 +55,28 @@ postRouter.get('/posts', async (req,res) =>{
     res.status(201).json(allPosts)
 })
 
+//Deleta post
 postRouter.delete("/posts/:id", async (req, res) => {
     const {id} = req.params
-    console.log("id", id)
-    console.log("Estou zqui", req.params)
-    const postFound = await post.findById(id);
-    if (!postFound){
-        console.log("Aqui agr")
-        throw new Error("Post não encontrado")
-    } else {
-        console.log("Nao deu bom")
-        await post.deleteById(id)
-        res.status(204).send()
+    try {
+        const postFound = await post.findById(id);
+
+        if (!postFound){
+            throw new Error("Post não encontrado");
+        } else {
+            await Post.findByIdAndDelete(id);
+            res.status(204).send();
+        }
+    }catch (error) {
+        console.error("Erro ao Excluir o post:", error.message)
+        res.status(500).send("Erro ao excluir o post");
     }
 })
 
 //Altera post ( Tentando )
 postRouter.put("/posts/:id", async (req, res) => {
     const { id } = req.params;
+    console.log("Estou aqui")
     const postToUpdate = await post.findById(id);
     if (!postToUpdate) {
         throw new Error("Post não encontrado");
