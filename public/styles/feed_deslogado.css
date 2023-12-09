@@ -67,7 +67,7 @@ body {
     width: 600px;
     margin: 1rem auto; /* Centraliza quando tem um elemento grande e um pequeno */
     display: grid;
-    background-color: grey;
+    background-color: white;
     border-radius: 2rem;
     padding: 1.5rem;
 }
