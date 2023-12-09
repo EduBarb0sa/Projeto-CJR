@@ -68,7 +68,18 @@ pagesRouter.get('/post/:oid', async (req,res) =>{
     const dados = await PostService.findById(oid)
     const {id, title, content} = dados
     req.session.postid = id
-    res.render('../views/post',{title,content})
+    res.render('../views/post_deslogado',{title,content})
 })
 
+pagesRouter.get('/post/user/:oid', async (req,res) =>{
+    const {oid} = req.params
+    const dados = await PostService.findById(oid)
+    const {id, title, content} = dados
+    req.session.postid = id
+    res.render('../views/post_logado',{title,content})
+})
+pagesRouter.get('/getpostid', (req,res) =>{
+    const postId = req.session.postid;
+    res.json(postId)
+})
 export default pagesRouter

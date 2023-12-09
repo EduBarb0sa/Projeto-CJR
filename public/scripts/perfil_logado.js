@@ -19,9 +19,12 @@ const renderpost = async () => {
         postElement.appendChild(deleteButton);
 
         postElement.innerHTML += `
-            <h2>${post.title}</h2>
+        <a href="/profile/${post.userId}">${post.title}</a>
+        <a href="/post/user/${post.id}">
             <p>${post.content}</p>
-        `;
+            </a>
+        `
+        ;
 
         return postElement;
     };
@@ -55,7 +58,6 @@ const deletePost = async (postId, postElement) => {
 
 // Call renderpost to initiate the rendering of posts
 renderpost();
-renderpost()
 
 
 var simplemde = new SimpleMDE({ element: document.getElementById("markdownInput") });

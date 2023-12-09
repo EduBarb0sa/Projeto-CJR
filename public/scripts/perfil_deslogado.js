@@ -16,7 +16,10 @@ const renderpost =async () => {
         
         postElement.innerHTML = `
             <h2>${post.title}</h2>
+            <a href="/profile/${post.userId}">${post.title}</a>
+        <a href="/post/${post.id}">
             <p>${post.content}</p>
+            </a>
         `
         postconteiner.appendChild(postElement)
    })
