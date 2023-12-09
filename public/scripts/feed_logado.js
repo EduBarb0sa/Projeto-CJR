@@ -1,6 +1,6 @@
 const renderpost =async () => {
         
-    const response = await fetch('http://localhost:8000/profile/posts/')
+    const response = await fetch('http://localhost:8000/posts')
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
@@ -8,10 +8,17 @@ const renderpost =async () => {
         postElement.classList.add("post")
         
         postElement.innerHTML = `
-            <h2>${post.title}</h2>
+        <a href="/profile/${post.userId}">${post.title}</a>
+
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
    })
 }
 renderpost()
+
+const getid = async () =>{
+    const response = await fetch('http://localhost:8000/getuserid')
+    const userid = response.json()
+    return userid
+}

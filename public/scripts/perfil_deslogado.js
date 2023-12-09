@@ -1,9 +1,12 @@
-import session from "express-session"
-const userid = req.session.userid
-const url = 'http://localhost:8000/profile/'+userid
-
 const renderpost =async () => {
-        
+    
+    const answer = await fetch ('http://localhost:8000/getotherid')
+    const userid = await answer.json()
+    console.log(userid)
+
+    const url ='http://localhost:8000/profile/posts/'+userid
+    console.log(url)
+
     const response = await fetch(url)
     const posts = await response.json()
     const postconteiner = document.querySelector(".lista-de-post")
@@ -16,6 +19,6 @@ const renderpost =async () => {
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
-    })
+   })
 }
 renderpost()

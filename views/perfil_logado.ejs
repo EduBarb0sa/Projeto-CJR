@@ -1,10 +1,10 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <link rel="stylesheet" href="../public/styles/perfil_logado.css">
+    <link rel="stylesheet" href="/styles/perfil_logado.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
     <title>Perfil Logado</title>
@@ -18,13 +18,13 @@
                 <div class="conteiner">
                     <span class="criar" id="user"></span>
                     <img src="../public/Imagens/image 1.png" class="img_pequena">
-                    <a href="/login"><img src="../public/Imagens/log-out.png""></a>
+                    <a href="/login"><img src="/Imagens/log-out.png"></a>
                 </div>
         </header>
         <main>
             <section class="muda_cor">
-                <span class="nome" id="user"></span>
-                <span class="email" id="user_gmail"></span>
+                <span class="nome" id="user"><%= nome %></span>
+                <span class="email" id="user_gmail"><%= email %></span>
                 <span class="botao2">Editar Perfil</span>
                 <img class="img_perfil" src="../public/Imagens/image 1.png">
             </section>
@@ -46,15 +46,10 @@
         </section>
         <section class="lista-de-post"></section>
     </body>
-    <script src="../public/scripts/perfil_logado.js">
-
-        var nome = nomeuser;
-        document.getElementById("user").innerHTML = nome
-        var email = gmailuser;
-        document.getElementById("user_gmail").innerHTML = email
+    <script src="/scripts/perfil_logado.js">
     </script>
-</html> -->
-
+</html>
+<!--
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -102,3 +97,4 @@
 </html>
 
 
+-->

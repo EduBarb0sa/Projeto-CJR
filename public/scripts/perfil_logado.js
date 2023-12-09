@@ -1,7 +1,11 @@
-const renderpost =async () => {
-        
-    const response = await fetch('http://localhost:8000/profile/posts/'+ localStorage.getItem("id_usuario"))
-    const posts = await response.json()
+
+const renderpost = async () => {
+    const response1 = await fetch('http://localhost:8000/getuserid')
+    const userid = await response1.json()
+    console.log(userid)
+    const url = 'http://localhost:8000/profile/posts/'+userid
+    const response2 = await fetch(url)
+    const posts = await response2.json()
     const postconteiner = document.querySelector(".lista-de-post")
     posts.forEach(post =>{
         const postElement = document.createElement('div')
@@ -12,8 +16,9 @@ const renderpost =async () => {
             <p>${post.content}</p>
         `
         postconteiner.appendChild(postElement)
-   })
+    })
 }
+
 renderpost()
 
 

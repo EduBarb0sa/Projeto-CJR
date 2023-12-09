@@ -34,6 +34,11 @@ UserRouter.post("/userchangepassword", async(req,res) =>{
     const change = await user.changeInfo(email,password);
     res.json(change)
 })
+UserRouter.get('/get-session-id', async (req, res) => {
+    const userId = req.session.userid; // Get the user ID from the session
+    console.log('userid getsess', userId)
+    res.json(userId);
+})
 
 
 //OBS: criar user tá em auth.controller
