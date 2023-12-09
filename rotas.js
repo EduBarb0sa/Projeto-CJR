@@ -58,6 +58,8 @@ pagesRouter.get('/username', (req,res) =>{
     const { nome } = dados
     res.json(nome)
 })
-
+pagesRouter.get('/editar_perfil', (req,res) =>{
+    res.render('../views/editar_perfil')
+})
 
 export default pagesRouter

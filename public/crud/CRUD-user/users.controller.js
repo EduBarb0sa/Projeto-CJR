@@ -40,8 +40,12 @@ UserRouter.get('/get-session-id', async (req, res) => {
     res.json(userId);
 })
 
-
-//OBS: criar user tá em auth.controller
+UserRouter.post("/edit", async(req,res) =>{
+    const {id, genero,nome,cargo} = req.body;
+    console.log(req.body)
+    const change = await user.editProfile(id,genero,nome,cargo);
+    res.json(change)
+})
 
 
 export default UserRouter
