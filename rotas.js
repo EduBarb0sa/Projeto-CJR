@@ -1,6 +1,8 @@
 import { Router } from "express";
 import Users from "./public/crud/CRUD-user/users.service.js";
+import Posts from "./public/crud/CRUD posts/posts.service.js";
 
+const PostService = new Posts()
 const UserService = new Users()
 const pagesRouter = Router()
 
@@ -60,6 +62,13 @@ pagesRouter.get('/username', (req,res) =>{
 })
 pagesRouter.get('/editar_perfil', (req,res) =>{
     res.render('../views/editar_perfil')
+})
+pagesRouter.get('/post/:oid', async (req,res) =>{
+    const {oid} = req.params
+    const dados = await PostService.findById(oid)
+    const {id, title, content} = dados
+    req.session.postid = id
+    res.render('../views/post',{title,content})
 })
 
 export default pagesRouter
