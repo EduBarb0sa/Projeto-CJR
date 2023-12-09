@@ -13,11 +13,6 @@ const renderpost = async () => {
         const postElement = document.createElement('div');
         postElement.classList.add("post");
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => deletePost(post.id, postElement));
-        postElement.appendChild(deleteButton);
-
         postElement.innerHTML += `
         <a href="/profile/${post.userId}">${post.title}</a>
         <a href="/post/user/${post.id}">
@@ -35,26 +30,6 @@ const renderpost = async () => {
     });
 }
 
-const deletePost = async (postId, postElement) => {
-    console.log('oi')
-    const deleteUrl = 'http://localhost:8000/profile/posts/' + postId;
-
-    try {
-        const response = await fetch(deleteUrl, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            // Remove the deleted post from the UI
-            postElement.remove();
-            console.log('Post deleted successfully');
-        } else {
-            console.error('Failed to delete post');
-        }
-    } catch (error) {
-        console.error('Error while deleting post', error);
-    }
-}
 
 // Call renderpost to initiate the rendering of posts
 renderpost();

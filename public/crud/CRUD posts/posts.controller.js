@@ -64,7 +64,7 @@ postRouter.delete("/posts/:id", async (req, res) => {
         if (!postFound){
             throw new Error("Post não encontrado");
         } else {
-            await Post.findByIdAndDelete(id);
+            await post.deleteById(id);
             res.status(204).send();
         }
     }catch (error) {

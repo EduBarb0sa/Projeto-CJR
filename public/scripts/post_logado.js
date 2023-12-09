@@ -9,8 +9,6 @@ const deletePost = async () => {
         });
 
         if (response.ok) {
-            // Remove the deleted post from the UI
-            postElement.remove();
             console.log('Post deleted successfully');
         } else {
             console.error('Failed to delete post');
