@@ -35,7 +35,7 @@
                         <div class="modal-content">
                             <span class="close" onclick="closeModal()">&times;</span>
                             <textarea id="markdownInput"></textarea>
-                            <button type="submit">Enviar</button>
+                            <button type="submit" class="close" onclick="closeModal()">Enviar</button>
                         </div>
                     </dialog>
                 </form>
@@ -49,52 +49,3 @@
     <script src="/scripts/perfil_logado.js">
     </script>
 </html>
-<!--
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" 
-    content="width=device, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/perfil_deslogado.css">
-    <title>Perfil Deslogado</title>
-    </head>
-
-    <body>
-        <header>
-                <div class="cjr-pequena">
-                    <a href="/feed"><img src="../public/Imagens/cjr.png" target="_blank"></a>
-                </div>
-                <div class="conteiner">
-                    <span class="criar" id="user"></span>
-                    <img src="../public/Imagens/image 1.png" class="img_pequena">
-                    <a href="/login"><img src="log-out.png" alt=""></a>
-                </div>
-        </header>
-        <main>
-            <section class="muda_cor">
-                <span class="nome" id="user"></span>
-                <span class="email" id="user_gmail"></span>
-                <span class=""></span>
-                <img class="img_perfil" src="../public/Imagens/image 1.png">
-            </section>
-            <section>
-                <span></span>
-            </section>
-        </main>
-        <section class="separador">
-            <span class="publics">LOGOU</span>
-        </section>
-        <section class="lista-de-post"></section>
-    </body>
-    <script src="/scripts/perfil_logado.js">
-
-        var nome = nomeuser;
-        document.getElementById("user").innerHTML = nome
-        var email = gmailuser;
-        document.getElementById("user_gmail").innerHTML = email
-    </script>
-</html>
-
-
--->

@@ -8,14 +8,12 @@ const prisma = new PrismaClient();
 const postRouter = Router();
 const post = new Posts();
 const user = new Users();
-
+ 
 
 //criar post
 postRouter.post('/posts', async (req,res) =>{
-    const {title, content, userid} =req.body
-    const userId = parseInt(userid)
-    console.log(userid)
-    console.log(userId)
+    console.log(req.body)
+    const {title, content, userId} = req.body
     try{
         const novoPost = await post.createPost(userId,title,content );
         res.status(201).json(novoPost)
@@ -57,6 +55,7 @@ postRouter.get('/posts', async (req,res) =>{
     res.status(201).json(allPosts)
 })
 
+//Deleta post
 postRouter.delete("/posts/:id", async (req, res) => {
     const {id} = req.params
     console.log("id", id)
