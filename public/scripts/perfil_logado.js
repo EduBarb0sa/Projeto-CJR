@@ -1,4 +1,3 @@
-
 const renderpost = async () => {
     const response1 = await fetch('http://localhost:8000/getuserid')
     const userid = await response1.json()
@@ -7,13 +6,14 @@ const renderpost = async () => {
     const response2 = await fetch(url)
     const posts = await response2.json()
     const postconteiner = document.querySelector(".lista-de-post")
+
     posts.forEach(post =>{
         const postElement = document.createElement('div')
         postElement.classList.add("post")
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', () => deleteById(post.postid));
+        deleteButton.addEventListener('click', console.log("Estou aqui"));
         postElement.appendChild(deleteButton);
 
         postElement.innerHTML += `
