@@ -53,7 +53,13 @@ pagesRouter.get('/getotherid', (req, res) => {
     console.log('otherid',userid)
     res.json(userid)
 })
-
-
+pagesRouter.get('/username', (req,res) =>{
+    const dados = req.session.dadosuser
+    const { nome } = dados
+    res.json(nome)
+})
+pagesRouter.get('/editar_perfil', (req,res) =>{
+    res.render('../views/editar_perfil')
+})
 
 export default pagesRouter

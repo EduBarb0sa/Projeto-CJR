@@ -85,4 +85,18 @@ export default class Users{
             }
         })
     }
+    async editProfile(id,nome,genero,cargo,){
+        const updateUser = await prisma.user.update({
+            where: {
+              id: id,
+            },
+            data: {
+              nome: nome,
+              genero: genero,
+              cargo: cargo
+            
+            },
+          })
+          return updateUser
+    }
 }

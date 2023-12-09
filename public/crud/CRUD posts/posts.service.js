@@ -3,12 +3,12 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient
 
 export default class Posts {
-    async createPost(userid, title,content) {
+    async createPost(userid, nome,content) {
         const userId = parseInt(userid)
         return await prisma.posts.create({
             data:{
                 userId: userId,
-                title: "dsifjsdoij",
+                title: nome,
                 content: content
             }
         }).catch((e) =>{
