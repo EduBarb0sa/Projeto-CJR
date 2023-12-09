@@ -20,10 +20,10 @@ async function login() {
             localStorage.setItem("id_usuario", data.id)
             localStorage.setItem("token", data.token)
             localStorage.setItem("login", true)
-            alert("login efetuado com sucesso")
+            alert("Login efetuado com sucesso")
             window.location.href = "../feed"
         }else{
-            alert("fodeu")
+            alert("Conta Não Encontrada")
         }
     })
     
