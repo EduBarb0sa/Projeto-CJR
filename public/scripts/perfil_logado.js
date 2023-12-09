@@ -43,12 +43,18 @@ function closeModal() {
 async function submitPost(event) {
     event.preventDefault()
     var markdownContent = simplemde.value();
+    const response = await fetch('http://localhost:8000/getuserid')
+    const userId = await response.json()
+    const response4 = await fetch('http://localhost:8000/username')
+    const nome = await response4.json()
+    console.log('userid',userId)
+    const userid = parseInt(userId,10)
     try { const dados = await fetch('http://localhost:8000/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({userId: 13, content: markdownContent}),
+        body: JSON.stringify({userId: userid, nome: nome, content: markdownContent}),
     })
     const post = await dados.json()
     console.log(post)

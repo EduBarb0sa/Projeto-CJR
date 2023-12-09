@@ -13,9 +13,9 @@ const user = new Users();
 //criar post
 postRouter.post('/posts', async (req,res) =>{
     console.log(req.body)
-    const {title, content, userId} = req.body
+    const {nome, content, userId} = req.body
     try{
-        const novoPost = await post.createPost(userId,title,content );
+        const novoPost = await post.createPost(userId,nome,content );
         res.status(201).json(novoPost)
     }
     catch(err){
