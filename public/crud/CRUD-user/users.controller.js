@@ -43,7 +43,7 @@ UserRouter.get('/get-session-id', async (req, res) => {
 UserRouter.post("/edit", async(req,res) =>{
     const {id, genero,nome,cargo} = req.body;
     console.log(req.body)
-    const change = await user.editProfile(id,genero,nome,cargo);
+    const change = await user.editProfile(id,nome,genero,cargo);
     res.json(change)
 })
 

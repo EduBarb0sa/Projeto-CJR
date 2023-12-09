@@ -1,19 +1,21 @@
 const renderpost = async () => {
-    const response1 = await fetch('http://localhost:8000/getuserid')
-    const userid = await response1.json()
-    console.log(userid)
-    const url = 'http://localhost:8000/profile/posts/'+userid
-    const response2 = await fetch(url)
-    const posts = await response2.json()
-    const postconteiner = document.querySelector(".lista-de-post")
+    const response1 = await fetch('http://localhost:8000/getuserid');
+    const userid = await response1.json();
+    console.log(userid);
+    const url = 'http://localhost:8000/profile/posts/' + userid;
+    const response2 = await fetch(url);
+    const posts = await response2.json();
+    const postconteiner = document.querySelector(".lista-de-post");
 
-    posts.forEach(post =>{
-        const postElement = document.createElement('div')
-        postElement.classList.add("post")
+    postconteiner.innerHTML = ''; // Clear existing posts
+
+    const createPostElement = (post) => {
+        const postElement = document.createElement('div');
+        postElement.classList.add("post");
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', console.log("Estou aqui"));
+        deleteButton.addEventListener('click', () => deletePost(post.id, postElement));
         postElement.appendChild(deleteButton);
 
         postElement.innerHTML += `
@@ -21,10 +23,38 @@ const renderpost = async () => {
             <p>${post.content}</p>
         `;
 
-        postconteiner.appendChild(postElement)
-    })
+        return postElement;
+    };
+
+    posts.forEach(post => {
+        const postElement = createPostElement(post);
+        postconteiner.appendChild(postElement);
+    });
 }
 
+const deletePost = async (postId, postElement) => {
+    console.log('oi')
+    const deleteUrl = 'http://localhost:8000/profile/posts/' + postId;
+
+    try {
+        const response = await fetch(deleteUrl, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            // Remove the deleted post from the UI
+            postElement.remove();
+            console.log('Post deleted successfully');
+        } else {
+            console.error('Failed to delete post');
+        }
+    } catch (error) {
+        console.error('Error while deleting post', error);
+    }
+}
+
+// Call renderpost to initiate the rendering of posts
+renderpost();
 renderpost()
 
 
