@@ -1,5 +1,7 @@
 import { Router } from "express";
+import Users from "./public/crud/CRUD-user/users.service.js";
 
+const UserService = new Users()
 const pagesRouter = Router()
 
 pagesRouter.get('/', (req,res) =>{
@@ -24,18 +26,20 @@ pagesRouter.get('/recuperar_senha', (req,res) =>{
     res.render('../views/recuperar_senha')
 
 })
-pagesRouter.get('/profile/:id', (req, res) => {
+pagesRouter.get('/profile/:id', async (req, res) => {
     const {id} = req.params;
-    const rotaid = id;
+    const rotaid = parseInt(id,10);
     const userid = req.session.userid;
     req.session.otherid = rotaid
+    const dadosuser = await UserService.findById(rotaid)
+    const {email, nome, genero, cargo} = dadosuser
 
     if (rotaid == userid) {
         console.log('sim')
-        res.render('../views/perfil_logado');
+        res.render('../views/perfil_logado',{email,nome,genero,cargo});
     } else {
         console.log('nao', req.session.otherid)
-        res.render('../views/perfil_deslogado');
+        res.render('../views/perfil_deslogado',{email,nome,genero,cargo});
     }
 });
 pagesRouter.get('/getuserid', (req, res) => {
